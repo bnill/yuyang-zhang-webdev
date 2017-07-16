@@ -1,4 +1,4 @@
-input {
+input, textarea {
     margin-bottom: 5px;
 }
 
@@ -28,8 +28,30 @@ body {
     float: left;
 }
 
-nav.navbar.navbar-default.navbar-fixed-top {
-    padding-right: 8px;
-    padding-left:8px;
+.nav.navbar.navbar-default.navbar-fixed-top {
+    padding-right: 5px;
+    padding-left:5px;
     position: absolute;
+}
+
+.container-fluid {
+    min-inline-size:187px;
+}
+
+.zyy-split-view-left{
+    position: absolute;;
+    top: 60px;
+    bottom:60px;
+    overflow-y:scroll;
+}
+
+@media (min-width: 1200px) {
+    .col-lg-9.zyy-split-view-right {
+        width: 75%;
+        position: absolute;
+        right: 0px;
+        overflow-y: scroll;
+        top: 60px;
+        bottom: 60px;
+    }
 }
