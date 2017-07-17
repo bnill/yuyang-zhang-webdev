@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New Website</title>
+    <title>Edit Website</title>
     <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet"/>
 </head>
@@ -24,7 +24,7 @@
             </a>
         </div>
         <div class="col-md-8 col-lg-8 col-xs-10 navbar-header">
-            <a class="navbar-brand" href="website-new.html">New Website</a>
+            <a class="navbar-brand" href="website-edit.html">Edit Website</a>
         </div>
         <div class="pull-right navbar-text">
             <a href="website-list.html" class="navbar-header">
@@ -59,18 +59,20 @@
         </div>
         <div class="col-md-9 col-lg-9 zyy-split-view-right">
 
-            <label for="name">Name</label>
+            <label for="name">Website Name</label>
             <input name="name"
-                   placeholder="website name"
+                   value="Amazon"
                    class="form-control"
                    id="name"/>
 
-            <label for="description">Description</label>
+            <label for="description">Website Description</label>
             <textarea name="description"
-                      placeholder="Description for this website"
                       class="form-control"
                       id="description"
-                      rows="8"></textarea>
+                      rows="8">Amazon has separate retail websites for the United States, the United Kingdom and Ireland, France, Canada, Germany, Italy, Spain, Netherlands, Australia, Brazil, Japan, China, India, and Mexico. Amazon also offers international shipping to certain other countries for some of its products.</textarea>
+            <a class="btn btn-default btn-danger btn-block"
+               href="website-list.html"
+               role="button">Delete</a>
         </div>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">

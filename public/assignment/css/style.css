@@ -55,3 +55,14 @@ body {
         bottom: 60px;
     }
 }
+
+@media (min-width: 992px) {
+    .col-md-9.zyy-split-view-right {
+        width: 75%;
+        position: absolute;
+        right: 0px;
+        overflow-y: scroll;
+        top: 60px;
+        bottom: 60px;
+    }
+}
