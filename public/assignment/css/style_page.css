@@ -43,3 +43,8 @@ input, textarea {
     margin-top:30px;
     margin-bottom: 30px;
 }
+
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
