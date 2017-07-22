@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-</head>
-<body>
+<link href="css/style.css" rel="stylesheet"/>
 
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <!--<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="css/style.css" rel="stylesheet"/>
-</head>
-<body>
+<div ng-controller="profileController">
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -31,38 +15,41 @@
         </div>
     </nav>
 
-<div class="container-fluid">
-    <h2>Profile</h2>
-    <label for="username">Username</label>
-    <input name="username"
-           class="form-control"
-           readonly
-           value="bill"
-           id="username"/>
-    <label for="Email">Email</label>
-    <input name="Email"
-           class="form-control"
-           type="email"
-           value="zyy@gmail.com"
-           id="Email"/>
-    <label for="first_name">First Name</label>
-    <input name="first_name"
-           class="form-control"
-           value="Yuyang"
-           id="first_name"/>
-    <label for="last_name">Last Name</label>
-    <input name="last_name"
-           class="form-control"
-           value="Zhang"
-           id="last_name"/>
+    <div class="container-fluid">
+        <h2>Profile</h2>
+        <label for="username">Username</label>
+        <input name="username"
+               ng-model="user.username"
+               class="form-control"
+               readonly
+               value="bill"
+               id="username"/>
+        <label for="Email">Email</label>
+        <input name="Email"
+               class="form-control"
+               type="email"
+               value="Alice@gmail.com"
+               id="Email"/>
+        <label for="first_name">First Name</label>
+        <input name="first_name"
+               ng-model="user.firstName"
+               class="form-control"
+               value="Yuyang"
+               id="first_name"/>
+        <label for="last_name">Last Name</label>
+        <input name="last_name"
+               ng-model="user.lastName"
+               class="form-control"
+               value="Zhang"
+               id="last_name"/>
 
-    <a class="btn btn-default btn-primary btn-block"
-       href="website-list.html"
-       role="button">Websites</a>
-    <a class="btn btn-default btn-danger btn-block"
-       href="login.html"
-       role="button">Logout</a>
-</div>
+        <a class="btn btn-default btn-primary btn-block"
+           href="website-list.html"
+           role="button">Websites</a>
+        <a class="btn btn-default btn-danger btn-block"
+           href="login.html"
+           role="button">Logout</a>
+    </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
@@ -73,6 +60,4 @@
             </p>
         </div>
     </nav>
-
-</body>
-</html>
+</div>
