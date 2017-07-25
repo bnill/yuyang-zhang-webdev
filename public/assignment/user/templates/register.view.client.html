@@ -1,31 +1,37 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 <!--<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
 <link href="css/style.css" rel="stylesheet"/>
 
     <div class="container-fluid">
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
         <h2>Register</h2>
         <label for="username">Username</label>
         <input name="username"
+               ng-model="user.username"
                class="form-control"
                placeholder="bill"
                id="username"/>
         <label for="password">Password</label>
         <input name="password"
+               ng-model="user.password"
                class="form-control"
                placeholder="abc123%#^"
                type="password"
                id="password"/>
         <label for="verify_password">Verify Password</label>
         <input name="verify_password"
+               ng-model="user.verify_password"
                class="form-control"
                placeholder="abc123%#^"
                type="password"
                id="verify_password"/>
 
         <a class="btn btn-default btn-primary btn-block"
-           href="profile.html"
+           ng-click="model.registerUser(user)"
            role="button">Register</a>
         <a class="btn btn-default btn-danger btn-block"
-           href="login.html"
+           href="#!/login"
            role="button">Cancel</a>
     </div>

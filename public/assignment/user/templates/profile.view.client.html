@@ -1,14 +1,13 @@
 <link href="css/style.css" rel="stylesheet"/>
-
-<div ng-controller="profileController">
+<div>
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="profile.html">Profile</a>
+                <a class="navbar-brand" href="profile.view.client.html">Profile</a>
             </div>
             <p class="navbar-text pull-right">
-                <a href="profile.html" class="navbar-link">
+                <a href="profile.view.client.html" class="navbar-link">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </p>
@@ -19,7 +18,7 @@
         <h2>Profile</h2>
         <label for="username">Username</label>
         <input name="username"
-               ng-model="user.username"
+               ng-model="model.user.username"
                class="form-control"
                readonly
                value="bill"
@@ -32,29 +31,29 @@
                id="Email"/>
         <label for="first_name">First Name</label>
         <input name="first_name"
-               ng-model="user.firstName"
+               ng-model="model.user.firstName"
                class="form-control"
                value="Yuyang"
                id="first_name"/>
         <label for="last_name">Last Name</label>
         <input name="last_name"
-               ng-model="user.lastName"
+               ng-model="model.user.lastName"
                class="form-control"
                value="Zhang"
                id="last_name"/>
 
         <a class="btn btn-default btn-primary btn-block"
-           href="website-list.html"
+           href="#"
            role="button">Websites</a>
         <a class="btn btn-default btn-danger btn-block"
-           href="login.html"
+           href="#!/login"
            role="button">Logout</a>
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <p class="navbar-text pull-right">
-                <a href="profile.html" class="navbar-link">
+                <a href="profile.view.client.html" class="navbar-link">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>

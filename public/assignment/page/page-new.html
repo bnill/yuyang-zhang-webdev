@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Page</title>
+    <title>New Page</title>
     <!--<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style_page.css" rel="stylesheet">
+    <link href="../css/style_page.css" rel="stylesheet">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
             </a>
         </div>
         <div class="navbar-header">
-            <a class="navbar-brand pull-left" href="page-edit.html">Edit Page</a>
+            <a class="navbar-brand pull-left" href="page-new.html">New Page</a>
         </div>
         <p class="navbar-text pull-right">
             <a href="page-list.html" class="navbar-header">
@@ -28,27 +28,23 @@
 </nav>
 
 <div class="container-fluid">
-    <label for="name">Name</label>
-    <input name="name"
+    <label for="page_name">Name</label>
+    <input name="page_name"
            class="form-control"
-           id="name"
-           value="Blog Post"/>
+           id="page_name"
+           placeholder="Page Name"/>
 
     <label for="title">Title</label>
     <input name="title"
            class="form-control"
            id="title"
            placeholder="Page Title"/>
-
-    <a class="btn btn-default btn-danger btn-block"
-       href="page-list.html"
-       role="button">Delete</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a href="profile.html" class="navbar-link">
+            <a href="../user/templates/profile.view.client.html" class="navbar-link">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </p>

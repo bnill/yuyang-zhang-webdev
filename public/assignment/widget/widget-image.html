@@ -5,7 +5,7 @@
     <title>Widget Edit</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!--<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="css/style_page.css" rel="stylesheet">
+    <link href="../css/style_page.css" rel="stylesheet">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
             </a>
         </div>
         <div class="navbar-header">
-            <a class="navbar-brand pull-left" href="widget-heading.html">Widget Edit</a>
+            <a class="navbar-brand pull-left" href="widget-image.html">Widget Edit</a>
         </div>
         <p class="navbar-text pull-right">
             <a href="widget-list.html" class="navbar-header">
@@ -40,11 +40,26 @@
            id="text"
            placeholder="Text for the header"/>
 
-    <label for="size">Size</label>
-    <input name="size"
+    <label for="url">URL</label>
+    <input name="url"
            class="form-control"
-           id="size"
-           value="3"/>
+           id="url"
+           value="https://i.kinja-img.com/gawker-media/image/upload/s--A4aQEcj7--/c_fill,fl_progressive,g_center,h_358,q_80,w_636/17irpui9sramqjpg.jpg"/>
+
+    <label for="width">Width</label>
+    <input name="width"
+           class="form-control"
+           id="width"
+           value="100%"/>
+
+    <label for="picture">Upload</label>
+    <input name="picture"
+           id="picture"
+           class="form-control"
+           type="file">
+
+    <a class="btn btn-default btn-primary btn-block"
+       role="button">Upload</a>
 
     <a class="btn btn-default btn-danger btn-block"
        href="widget-list.html"
@@ -54,7 +69,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a href="profile.html" class="navbar-link">
+            <a href="../user/templates/profile.view.client.html" class="navbar-link">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </p>

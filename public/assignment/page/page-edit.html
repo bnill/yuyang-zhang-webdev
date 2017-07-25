@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Widget Edit</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>Edit Page</title>
     <!--<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="css/style_page.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style_page.css" rel="stylesheet">
 </head>
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand pull-left" href="widget-list.html">
+            <a class="navbar-brand pull-left" href="page-list.html">
                 <span class="glyphicon glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
         <div class="navbar-header">
-            <a class="navbar-brand pull-left" href="widget-youtube.html">Widget Edit</a>
+            <a class="navbar-brand pull-left" href="page-edit.html">Edit Page</a>
         </div>
         <p class="navbar-text pull-right">
-            <a href="widget-list.html" class="navbar-header">
+            <a href="page-list.html" class="navbar-header">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
         </p>
@@ -32,29 +32,23 @@
     <input name="name"
            class="form-control"
            id="name"
-           placeholder="Video Name"/>
+           value="Blog Post"/>
 
-    <label for="text">Text</label>
-    <input name="text"
+    <label for="title">Title</label>
+    <input name="title"
            class="form-control"
-           id="text"
-           placeholder="Text for the video"/>
-
-    <label for="url">Url</label>
-    <input name="url"
-           class="form-control"
-           id="url"
-           value="https://www.youtube.com/watch?v=_bNBN9XlTK0"/>
+           id="title"
+           placeholder="Page Title"/>
 
     <a class="btn btn-default btn-danger btn-block"
-       href="widget-list.html"
+       href="page-list.html"
        role="button">Delete</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a href="profile.html" class="navbar-link">
+            <a href="../user/templates/profile.view.client.html" class="navbar-link">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </p>

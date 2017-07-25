@@ -5,13 +5,19 @@
     function configuration($routeProvider) {
         $routeProvider
             .when("/login", {
-                templateUrl: "login.html"
+                templateUrl: "user/templates/login.view.client.html",
+                controller: "loginController",
+                controllerAs: "model"
             })
             .when("/register", {
-                templateUrl: "register.html"
+                templateUrl: "user/templates/register.view.client.html",
+                controller: "registerController",
+                controllerAs: "model"
             })
             .when("/profile/:userId", {
-                templateUrl: "profile.html"
+                templateUrl: "user/templates/profile.view.client.html",
+                controller: "profileController",
+                controllerAs: "model"
             })
     }
 })();

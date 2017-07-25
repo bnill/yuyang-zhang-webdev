@@ -1,33 +1,32 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>-->
 <!--<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>-->
 <link href="css/style.css" rel="stylesheet"/>
 
-
     <div class="container-fluid">
-        <div ng-controller="LoginController">
+        <div>
             <h2>Login</h2>
-            <div ng-show="errorMessage" class="alert alert-danger">
-                {{errorMessage}}
+            <div ng-show="model.errorMessage" class="alert alert-danger">
+                {{model.errorMessage}}
             </div>
             <label for="username">Username</label>
             <input name="username"
-                   ng-model="user.username"
+                   ng-model="model.user.username"
                    placeholder="bill"
                    class="form-control"
                    id="username"/>
             <label for="password">Password</label>
             <input name="password"
-                   ng-model="user.password"
+                   ng-model="model.user.password"
                    placeholder="abc%123#"
                    type="password"
                    class="form-control"
                    id="password">
 
             <a class="btn btn-default btn-primary btn-block"
-               ng-click="login(user)"
+               ng-click="model.login(model.user)"
                role="button">Login</a>
             <a class="btn btn-default btn-success btn-block"
-               href="register.html"
+               href="#!/register"
                role="button">Register</a>
         </div>
     </div>
