@@ -9,5 +9,12 @@
             model.user = userService.findUserById(userId);
         }
         init();
+
+        function updateUser(User){
+            var _user = userService.updateUser(user._id, user);
+            if(!_user){
+                $location.url("/profile/" + user._id);
+            }
+        }
     }
 })();

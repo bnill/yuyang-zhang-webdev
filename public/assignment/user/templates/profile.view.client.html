@@ -1,6 +1,5 @@
 <link href="css/style.css" rel="stylesheet"/>
 <div>
-
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -21,7 +20,6 @@
                ng-model="model.user.username"
                class="form-control"
                readonly
-               value="bill"
                id="username"/>
         <label for="Email">Email</label>
         <input name="Email"
@@ -33,18 +31,19 @@
         <input name="first_name"
                ng-model="model.user.firstName"
                class="form-control"
-               value="Yuyang"
                id="first_name"/>
         <label for="last_name">Last Name</label>
         <input name="last_name"
                ng-model="model.user.lastName"
                class="form-control"
-               value="Zhang"
                id="last_name"/>
 
         <a class="btn btn-default btn-primary btn-block"
            href="#"
            role="button">Websites</a>
+        <a class="btn btn-default btn-primary btn-block"
+           ng-click="model.updateUser(model.user._id, model.user)"
+           role="button">Update</a>
         <a class="btn btn-default btn-danger btn-block"
            href="#!/login"
            role="button">Logout</a>

@@ -15,10 +15,21 @@
             "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
             "findUserById": findUserById,
             "registerUser": registerUser,
-            "findUserByUsername": findUserByUsername
+            "findUserByUsername": findUserByUsername,
+            "updateUser": updateUser
         };
 
         return api;
+
+        function updateUser(userId, user){
+            for(var u in users){
+                if(users[u].username === username){
+                    user[u] = user;
+                    return user[u];
+                }
+            }
+            return null;
+        }
 
         function findUserByUsername(username){
             for(var u in users){
