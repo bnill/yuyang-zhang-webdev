@@ -1,0 +1,41 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!--<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+<link href="css/style.css" rel="stylesheet"/>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand pull-left" href="../user/templates/profile.view.client.html">
+                <span class="glyphicon glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand pull-left" href="website-list.view.client.html">Websites</a>
+        </div>
+        <p class="navbar-text pull-right">
+            <a href="#!/user/{{model.userId}}/website/new" class="navbar-header">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </p>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <ul class="list-group">
+        <li ng-repeat="website in model.websites" class="list-group-item">
+            <a href="../page/page-list.html">{{website.name}}</a>
+            <a href="website-edit.view.client.html">
+                <span class="pull-right glyphicon glyphicon-cog"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <p class="navbar-text pull-right">
+            <a href="../user/templates/profile.view.client.html" class="navbar-link">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </p>
+    </div>
+</nav>

@@ -23,9 +23,10 @@
                id="username"/>
         <label for="Email">Email</label>
         <input name="Email"
+               ng-model="model.user.email"
                class="form-control"
                type="email"
-               value="Alice@gmail.com"
+               placeholder="Alice@gmail.com"
                id="Email"/>
         <label for="first_name">First Name</label>
         <input name="first_name"
@@ -39,7 +40,7 @@
                id="last_name"/>
 
         <a class="btn btn-default btn-primary btn-block"
-           href="#"
+           href="#!/user/{{model.user._id}}/website"
            role="button">Websites</a>
         <a class="btn btn-default btn-primary btn-block"
            ng-click="model.updateUser(model.user._id, model.user)"
