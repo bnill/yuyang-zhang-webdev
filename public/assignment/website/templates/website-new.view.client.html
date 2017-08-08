@@ -19,7 +19,7 @@
             <a class="navbar-brand">New Website</a>
         </div>
         <div class="pull-right navbar-text">
-            <a ng-click="model.addWebsite(website)" class="navbar-header">
+            <a ng-click="model.addWebsite(model.userId, website)" class="navbar-header">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
         </div>
@@ -38,7 +38,9 @@
             </ul>
         </div>
         <div class="col-md-9 col-lg-9 zyy-split-view-right">
-
+            <div ng-show="model.errorMessage" class="alert alert-danger">
+                {{model.errorMessage}}
+            </div>
             <label for="name">Name</label>
             <input name="name"
                    ng-model="website.name"

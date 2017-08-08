@@ -1,5 +1,3 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<!--<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
 <link href="css/style.css" rel="stylesheet"/>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -22,8 +20,8 @@
 <div class="container-fluid">
     <ul class="list-group">
         <li ng-repeat="website in model.websites" class="list-group-item">
-            <a href="#!/user/{{model.userId}}/website/12345/page">{{website.name}}</a>
-            <a href="#!/user/{{model.userId}}/website/12345">
+            <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
+            <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                 <span class="pull-right glyphicon glyphicon-cog"></span>
             </a>
         </li>

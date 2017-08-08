@@ -11,9 +11,12 @@
         ];
 
         var api = {
-
+            "findPageByWebsiteId": findPageByWebsiteId
         };
         return api;
 
+        function findPageByWebsiteId(websiteId){
+
+        }
     }
 })();

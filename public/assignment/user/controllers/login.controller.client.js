@@ -12,7 +12,7 @@
 
         function login(user) {
             if(!user){
-                model.errorMessage = "User not found";
+                model.errorMessage = "Please enter username and password";
                 return;
             }
             user = userService.findUserByUsernameAndPassword(model.user.username, model.user.password);

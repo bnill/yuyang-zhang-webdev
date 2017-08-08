@@ -3,20 +3,20 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand pull-left" href="website-list.view.client.html">
+            <a class="navbar-brand pull-left" href="#!/user/{{model.userId}}/website">
                 <span class="glyphicon glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
         <div class="col-md-2 col-lg-2 visible-lg visible-md navbar-header">
-            <a class="navbar-brand" href="website-list.view.client.html">Websites</a>
+            <a class="navbar-brand">Websites</a>
         </div>
         <div class="visible-md visible-lg navbar-text">
-            <a href="website-new.view.client.html" class="navbar-header">
+            <a href="#!/user/{{model.userId}}/website/new" class="navbar-header">
                 <span class="glyphicon glyphicon-plus"></span>
             </a>
         </div>
         <div class="col-md-8 col-lg-8 col-xs-10 navbar-header">
-            <a class="navbar-brand" href="website-edit.view.client.html">Edit Website</a>
+            <a class="navbar-brand">Edit Website</a>
         </div>
         <div class="pull-right navbar-text">
             <a href="website-list.view.client.html" class="navbar-header">
@@ -31,20 +31,8 @@
     <div class="row">
         <div class="col-md-3 visible-lg visible-md zyy-split-view-left">
             <ul class="list-group">
-                <li class="list-group-item">
-                    Amazon
-                    <span class="pull-right glyphicon glyphicon-cog"></span>
-                </li>
-                <li class="list-group-item">
-                    Facebook
-                    <span class="pull-right glyphicon glyphicon-cog"></span>
-                </li>
-                <li class="list-group-item">
-                    WeChat
-                    <span class="pull-right glyphicon glyphicon-cog"></span>
-                </li>
-                <li class="list-group-item">
-                    Football
+                <li ng-repeat="website in model.websites" class="list-group-item">
+                    {{website.name}}
                     <span class="pull-right glyphicon glyphicon-cog"></span>
                 </li>
             </ul>
@@ -53,7 +41,7 @@
 
             <label for="name">Website Name</label>
             <input name="name"
-                   value="Amazon"
+                   value={{model.website.name}}
                    class="form-control"
                    id="name"/>
 
@@ -61,16 +49,16 @@
             <textarea name="description"
                       class="form-control"
                       id="description"
-                      rows="8">Amazon has separate retail websites for the United States, the United Kingdom and Ireland, France, Canada, Germany, Italy, Spain, Netherlands, Australia, Brazil, Japan, China, India, and Mexico. Amazon also offers international shipping to certain other countries for some of its products.</textarea>
+                      rows="8">{{model.website.description}}</textarea>
             <a class="btn btn-default btn-danger btn-block"
-               href="website-list.view.client.html"
+               ng-click="model.deleteWebsite(model.website._id)"
                role="button">Delete</a>
         </div>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <p class="navbar-text pull-right">
-                <a href="../user/templates/profile.view.client.html" class="navbar-link">
+                <a href="#!/user/{{model.userId}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>
