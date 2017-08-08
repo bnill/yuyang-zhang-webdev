@@ -1,27 +1,25 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<!--<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
 <link href="css/style.css" rel="stylesheet"/>
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand pull-left" href="website-list.view.client.html">
+            <a class="navbar-brand pull-left" href="#!/user/{{model.userId}}/website">
                 <span class="glyphicon glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
         <div class="col-md-2 col-lg-2 visible-lg visible-md navbar-header">
-            <a class="navbar-brand" href="website-list.view.client.html">Websites</a>
+            <a class="navbar-brand" href="#!/user/{{model.userId}}/website">Websites</a>
         </div>
         <div class="visible-md visible-lg navbar-text">
-            <a href="website-new.view.client.html" class="navbar-header">
+            <a href="#!/user/{{model.userId}}/website/new" class="navbar-header">
                 <span class="glyphicon glyphicon-plus"></span>
             </a>
         </div>
         <div class="col-md-8 col-lg-8 col-xs-10 navbar-header">
-            <a class="navbar-brand" href="website-new.view.client.html">New Website</a>
+            <a class="navbar-brand">New Website</a>
         </div>
         <div class="pull-right navbar-text">
-            <a href="website-list.view.client.html" class="navbar-header">
+            <a ng-click="model.addWebsite(website)" class="navbar-header">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
         </div>
@@ -33,20 +31,8 @@
     <div class="row">
         <div class="col-md-3 visible-lg visible-md zyy-split-view-left">
             <ul class="list-group">
-                <li class="list-group-item">
-                    Amazon
-                    <span class="pull-right glyphicon glyphicon-cog"></span>
-                </li>
-                <li class="list-group-item">
-                    Facebook
-                    <span class="pull-right glyphicon glyphicon-cog"></span>
-                </li>
-                <li class="list-group-item">
-                    WeChat
-                    <span class="pull-right glyphicon glyphicon-cog"></span>
-                </li>
-                <li class="list-group-item">
-                    Football
+                <li ng-repeat="website in model.websites" class="list-group-item">
+                    {{website.name}}
                     <span class="pull-right glyphicon glyphicon-cog"></span>
                 </li>
             </ul>
@@ -55,12 +41,14 @@
 
             <label for="name">Name</label>
             <input name="name"
+                   ng-model="website.name"
                    placeholder="website name"
                    class="form-control"
                    id="name"/>
 
             <label for="description">Description</label>
             <textarea name="description"
+                      ng-model="website.description"
                       placeholder="Description for this website"
                       class="form-control"
                       id="description"
@@ -70,7 +58,7 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <p class="navbar-text pull-right">
-                <a href="../user/templates/profile.view.client.html" class="navbar-link">
+                <a href="#!/user/{{model.userId}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>

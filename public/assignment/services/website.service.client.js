@@ -1,7 +1,7 @@
 (function(){
     angular
         .module("WamApp")
-        .service("websiteService", websiteService);
+        .factory("websiteService", websiteService);
 
     function websiteService(){
 
@@ -15,7 +15,13 @@
             { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
         ];
 
-        this.findWebsitesForUser = findWebsitesForUser;
+        //this.findWebsitesForUser = findWebsitesForUser;
+        var api = {
+            "findWebsitesForUser": findWebsitesForUser,
+            "addWebsiteForUser": addWebsiteForUser
+        }
+
+        return api;
 
         function findWebsitesForUser(userId){
             var sites = [];
@@ -25,6 +31,12 @@
                 }
             }
             return sites;
+        }
+        
+        function addWebsiteForUser(website) {
+            website._id = (new Date()).getTime() + "";
+            websites.push(website);
+            return website;
         }
     }
 })();

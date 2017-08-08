@@ -20,7 +20,7 @@
                 model.errorMessage = "User and password pair not found";
             }
             else{
-                $location.url("profile/"+ user._id);
+                $location.url("/user/"+ user._id);
             }
         }
     }
