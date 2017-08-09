@@ -1,11 +1,9 @@
-<!--<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style_page.css" rel="stylesheet">
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand pull-left" href="page-list.view.client.html">
+            <a class="navbar-brand pull-left" ng-click="model.updatePage(model.pid, model.page)">
                 <span class="glyphicon glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
@@ -13,7 +11,7 @@
             <a class="navbar-brand pull-left" href="page-edit.view.client.html">Edit Page</a>
         </div>
         <p class="navbar-text pull-right">
-            <a href="page-list.view.client.html" class="navbar-header">
+            <a ng-click="model.updatePage(model.pid, model.page)" class="navbar-header">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
         </p>
@@ -21,20 +19,25 @@
 </nav>
 
 <div class="container-fluid">
+    <div ng-show="model.errorMessage" class="alert alert-danger">
+        {{model.errorMessage}}
+    </div>
     <label for="name">Name</label>
     <input name="name"
+           ng-model="model.page.name"
            class="form-control"
            id="name"
            value="Blog Post"/>
 
     <label for="title">Title</label>
     <input name="title"
+           ng-model="model.page.description"
            class="form-control"
            id="title"
            placeholder="Page Title"/>
 
     <a class="btn btn-default btn-danger btn-block"
-       href="page-list.view.client.html"
+       ng-click="model.deletePage(model.pid)"
        role="button">Delete</a>
 </div>
 
@@ -47,6 +50,3 @@
         </p>
     </div>
 </nav>
-
-</body>
-</html>

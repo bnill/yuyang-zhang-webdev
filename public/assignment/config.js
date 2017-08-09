@@ -40,24 +40,24 @@
                 controllerAs: "model"
             })
             .when("/user/:userId/website/:wid/page", {
-                templateUrl: "page/templates/page-list.view.client.html"
-                //controller:
-                //controllerAs:
+                templateUrl: "page/templates/page-list.view.client.html",
+                controller: "pageListController",
+                controllerAs: "model"
             })
             .when("/user/:userId/website/:wid/page/new", {
-                templateUrl: "page/templates/page-new.view.client.html"
-                //controller:
-                //controllerAs:
+                templateUrl: "page/templates/page-new.view.client.html",
+                controller: "pageNewController",
+                controllerAs: "model"
             })
             .when("/user/:userId/website/:wid/page/:pid", {
-                templateUrl: "page/templates/page-edit.view.client.html"
-                //controller:
-                //controllerAs:
+                templateUrl: "page/templates/page-edit.view.client.html",
+                controller: "pageEditController",
+                controllerAs: "model"
             })
             .when("/user/:userId/website/:wid/page/:pid/widget", {
-                templateUrl: "widget/templates/widget-list.view.client.html"
-                //controller:
-                //controllerAs:
+                templateUrl: "widget/templates/widget-list.view.client.html",
+                controller: "widgetListController",
+                controllerAs: "model"
             })
             .when("/user/:userId/website/:wid/page/:pid/widget/new", {
                 templateUrl: "widget/templates/widget-chooser.view.client.html"
