@@ -20,7 +20,7 @@
             "findWebsitesForUser": findWebsitesForUser,
             "createWebsite": createWebsite,
             "findWebsiteById":findWebsiteById,
-            "updateWebsite": updateWebsite,
+            "UpdateWebsite": UpdateWebsite,
             "deleteWebsite": deleteWebsite
         }
 
@@ -57,11 +57,19 @@
             var result = findWebsiteById(wid);
             var index = websites.indexOf(result);
             websites.splice(index, 1);
+            return;
             //console.log("111");
         }
 
-        function updateWebsite() {
-
+        function UpdateWebsite(wid, website) {
+            for(w in websites) {
+                if(websites[w]._id === wid){
+                    websites[w].name = website.name;
+                    websites[w].description = website.description;
+                    return websites[w];
+                }
+            }
+            return;
         }
     }
 })();
