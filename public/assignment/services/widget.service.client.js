@@ -26,8 +26,29 @@
 
         return api;
 
-        function createWidget(){
-
+        function createWidget(TYPE, pid){
+            var widgetId = (new Date()).getTime() + "";
+            switch(TYPE){
+                case 'HEADING':
+                    var widget = { "_id": "", "widgetType": "HEADING", "pageId": "", "size": "" , "text": ""};
+                    break;
+                case 'HTML':
+                    var widget = { "_id": "", "widgetType": "HTML", "pageId": "", "text": ""};
+                    break;
+                case 'IMAGE':
+                    var widget = { "_id": "", "widgetType": "IMAGE", "pageId": "", "width": "" , "url": ""};
+                    break;
+                case 'YOUTUBE':
+                    var widget = { "_id": "", "widgetType": "YOUTUBE", "pageId": "", "width": "" , "url": ""};
+                    break;
+                default:
+                    break;
+            }
+            widget._id = widgetId;
+            widget.pageId = pid;
+            //console.log(widget);
+            widgets.push(widget);
+            return widgetId;
         }
 
         function findWidgetsByPageId(pid){

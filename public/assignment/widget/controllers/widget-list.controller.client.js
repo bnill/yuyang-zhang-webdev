@@ -8,7 +8,6 @@
         model.userId = $routeParams.userId;
         model.wid = $routeParams.wid;
         model.pid = $routeParams.pid;
-        model.widgetViewUrl = widgetViewUrl;
         model.getYoutubeVideo = getYoutubeVideo;
         model.trust_html = trust_html;
 
@@ -18,16 +17,11 @@
         }
         init();
 
-        function widgetViewUrl(widget){
-            var url = 'widget/templates/views/widget-'+widget.widgetType.toLowerCase()+'.view.client.html';
-            //console.log(url);
-            return url;
-        }
-
         function getYoutubeVideo(url){
             var embedUrl = "https://www.youtube.com/embed/";
-            var linkUrlParts = url.split('/');
-            embedUrl += url[url.length - 1];
+            var UrlParts = url.split('/');
+            embedUrl += UrlParts[UrlParts.length - 1];
+            //console.log(embedUrl);
             return $sce.trustAsResourceUrl(embedUrl);
         }
 

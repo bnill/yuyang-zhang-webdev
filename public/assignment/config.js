@@ -60,12 +60,12 @@
                 controllerAs: "model"
             })
             .when("/user/:userId/website/:wid/page/:pid/widget/new", {
-                templateUrl: "widget/templates/widget-chooser.view.client.html"
-                //controller:
-                //controllerAs:
+                templateUrl: "widget/templates/widget-chooser.view.client.html",
+                controller: "widgetNewController",
+                controllerAs: "model"
             })
             .when("/user/:userId/website/:wid/page/:pid/widget/:wgid", {
-                templateUrl: "widget/templates/widget-edit.view.client.html"
+                templateUrl: "widget/templates/editors/widget-heading.view.client.html"
                 //controller:
                 //controllerAs:
             })

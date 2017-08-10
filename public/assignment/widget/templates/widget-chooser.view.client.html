@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Choose Widget</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <!--<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="../../css/style_page.css" rel="stylesheet">
-</head>
-<body>
+<link href="css/style_page.css" rel="stylesheet">
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand pull-left" href="widget-list.view.client.html">
+            <a class="navbar-brand pull-left" href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget">
                 <span class="glyphicon glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
         <div class="navbar-header">
-            <a class="navbar-brand pull-left" href="widget-chooser.view.client.html">Choose Widget</a>
+            <a class="navbar-brand pull-left">Choose Widget</a>
         </div>
     </div>
 </nav>
@@ -25,31 +16,31 @@
 <div class="container-fluid">
     <ul class="list-group">
         <li class="zyy-chooser-list-group-item">
-            <a href="editors/widget-heading.view.client.html">Header</a>
+            <a ng-click="model.createWidget('HEADING')">Header</a>
         </li>
         <li class="zyy-chooser-list-group-item">
-            <a href="widget-chooser.view.client.html">Label</a>
+            <a href="">Label</a>
         </li>
         <li class="zyy-chooser-list-group-item">
-            <a href="widget-chooser.view.client.html">HTML</a>
+            <a ng-click="model.createWidget('HTML')">HTML</a>
         </li>
         <li class="zyy-chooser-list-group-item">
-            <a href="widget-chooser.view.client.html">Text Input</a>
+            <a href="">Text Input</a>
         </li>
         <li class="zyy-chooser-list-group-item">
-            <a href="widget-chooser.view.client.html">Link</a>
+            <a href="">Link</a>
         </li>
         <li class="zyy-chooser-list-group-item">
-            <a href="widget-chooser.view.client.html">Button</a>
+            <a href="">Button</a>
         </li>
         <li class="zyy-chooser-list-group-item">
-            <a href="editors/widget-image.view.client.html">Image</a>
+            <a ng-click="model.createWidget('IMAGE')">Image</a>
         </li>
         <li class="zyy-chooser-list-group-item">
-            <a href="editors/widget-youtube.view.client.html">Youtube</a>
+            <a ng-click="model.createWidget('YOUTUBE')">Youtube</a>
         </li>
         <li class="zyy-chooser-list-group-item">
-            <a href="widget-chooser.view.client.html">Data Table</a>
+            <a href="">Data Table</a>
         </li>
     </ul>
 </div>
@@ -57,12 +48,9 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a href="../../user/templates/profile.view.client.html" class="navbar-link">
+            <a href="#!/user/{{model.userId}}" class="navbar-link">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </p>
     </div>
 </nav>
-
-</body>
-</html>
