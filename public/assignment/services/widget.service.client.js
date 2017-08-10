@@ -62,16 +62,37 @@
 
         }
         
-        function findWidgetsById() {
-            
+        function findWidgetsById(wgid) {
+            var result;
+            for(var w in widgets){
+                if(widgets[w]._id === wgid){
+                    result = widgets[w];
+                    //console.log(result);
+                    return result;
+                }
+            }
+            return;
         }
 
-        function updateWidget(){
-
+        function updateWidget(wgid, widget){
+            var result;
+            for(var w in widgets){
+                if(widgets[w]._id === wgid){
+                    //console.log(widgets[w]);
+                    widgets[w] = widget;
+                    result = widgets[w];
+                    //console.log(widgets[w])
+                }
+            }
+            return result;
         }
 
-        function deleteWidget(){
-
+        function deleteWidget(wgid){
+            var result = findWidgetsById(wgid);
+            var index = widgets.indexOf(result);
+            widgets.splice(index, 1);
+            //console.log(widgets);
+            return widgets;
         }
 
     }

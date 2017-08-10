@@ -18,7 +18,7 @@
         function createWidget(TYPE) {
             var widgetId = widgetService.createWidget(TYPE, model.pid);
             //console.log(widgetId);
-            $location.url = ('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget/' + widgetId);
+            $location.url('/user/' + model.userId + '/website/' + model.wid + '/page/' + model.pid + '/widget/' + widgetId);
         }
     }
 })();

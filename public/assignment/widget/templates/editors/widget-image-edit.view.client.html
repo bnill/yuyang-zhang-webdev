@@ -1,0 +1,40 @@
+<label for="name">Name</label>
+<input name="name"
+       ng-model="model.widget.name"
+       class="form-control"
+       id="name"
+       placeholder="Header Name"/>
+
+<label for="text">Text</label>
+<input name="text"
+       ng-model="model.widget.text"
+       class="form-control"
+       id="text"
+       placeholder="Text for the header"/>
+
+<label for="url">URL</label>
+<input name="url"
+       ng-model="model.widget.url"
+       class="form-control"
+       id="url"
+       placeholder="https://i.kinja-img.com/gawker-media/image/upload/s--A4aQEcj7--/c_fill,fl_progressive,g_center,h_358,q_80,w_636/17irpui9sramqjpg.jpg"/>
+
+<label for="width">Width</label>
+<input name="width"
+       ng-model="model.widget.width"
+       class="form-control"
+       id="width"
+       placeholder="100%"/>
+
+<label for="picture">Upload</label>
+<input name="picture"
+       id="picture"
+       class="form-control"
+       type="file">
+
+<a class="btn btn-default btn-primary btn-block"
+   role="button">Upload</a>
+
+<a class="btn btn-default btn-danger btn-block"
+   ng-click="model.deleteWidget(model.wgid)"
+   role="button">Delete</a>

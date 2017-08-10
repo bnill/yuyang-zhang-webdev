@@ -1,0 +1,45 @@
+<link href="css/style_page.css" rel="stylesheet">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget" class="navbar-brand pull-left">
+                <span class="glyphicon glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand pull-left">Widget Edit</a>
+        </div>
+        <p class="navbar-text pull-right">
+            <a ng-click="model.updateWidget(model.wgid, model.widget)" class="navbar-header">
+                <span class="glyphicon glyphicon-ok"></span>
+            </a>
+        </p>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div ng-switch="model.widget.widgetType">
+        <div ng-switch-when="HEADING">
+            <div ng-include src ="'widget/templates/editors/widget-heading-edit.view.client.html'"></div>
+        </div>
+
+        <div ng-switch-when="IMAGE">
+            <div ng-include src ="'widget/templates/editors/widget-image-edit.view.client.html'"></div>
+        </div>
+
+        <div ng-switch-when="YOUTUBE">
+            <div ng-include src ="'widget/templates/editors/widget-youtube-edit.view.client.html'"></div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <p class="navbar-text pull-right">
+            <a href="#!/user/{{model.userId}}" class="navbar-link">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </p>
+    </div>
+</nav>

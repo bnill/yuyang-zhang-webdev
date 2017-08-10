@@ -1,0 +1,25 @@
+<label for="name">Name</label>
+<input name="name"
+       ng-model="model.widget.name"
+       class="form-control"
+       id="name"
+       placeholder="Video Name"/>
+
+<label for="text">Text</label>
+<input name="text"
+       ng-model="model.widget.text"
+       class="form-control"
+       id="text"
+       placeholder="Text for the video"/>
+
+<label for="url">Url</label>
+<input name="url"
+       ng-model="model.widget.url"
+       class="form-control"
+       id="url"
+       placeholder="https://www.youtube.com/watch?v=_bNBN9XlTK0"/>
+
+<a class="btn btn-default btn-danger btn-block"
+   ng-click="model.deleteWidget(model.wgid)"
+   role="button">Delete</a>
+
