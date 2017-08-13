@@ -25,7 +25,7 @@
 
         function updateWidget(wid, widget) {
             var result = widgetService.updateWidget(wid, widget);
-            console.log(result);
+            //console.log(result);
             $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
         }
     }
