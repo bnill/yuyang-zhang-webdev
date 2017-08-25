@@ -11,9 +11,12 @@
         model.wgid = $routeParams.wgid;
         model.deleteWidget = deleteWidget;
         model.updateWidget = updateWidget;
+        model.maintainUneditedWidget = maintainUneditedWidget;
+        model.maintainWidgetByProfile = maintainWidgetByProfile;
 
         function init() {
             model.widget = widgetService.findWidgetsById(model.wgid);
+            model.uneditedWidget = angular.copy(model.widget);
         }
         init();
 
@@ -27,6 +30,16 @@
             var result = widgetService.updateWidget(wid, widget);
             //console.log(result);
             $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+        }
+
+        function maintainUneditedWidget(wgid){
+            widgetService.updateWidget(wgid, model.uneditedWidget);
+            $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+        }
+
+        function maintainWidgetByProfile(wgid){
+            widgetService.updateWidget(wgid, model.uneditedWidget);
+            $location.url("/user/" + model.userId);
         }
     }
 })();

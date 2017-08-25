@@ -32,8 +32,8 @@
         <div class="col-md-3 visible-lg visible-md zyy-split-view-left">
             <ul class="list-group">
                 <li ng-repeat="website_unedited in model.websites_unedited" class="list-group-item">
-                    {{website_unedited.name}}
-                    <span ng-click="model.updateWebsiteByCog(model.website, website_unedited._id)" class="pull-right glyphicon glyphicon-cog"></span>
+                    <a href = "#!/user/{{model.userId}}/website/{{website_unedited._id}}/page">{{website_unedited.name}}</a>
+                    <span ng-click="model.maintainWebsiteByCog(model.website, website_unedited._id)" class="pull-right glyphicon glyphicon-cog"></span>
                 </li>
             </ul>
         </div>
@@ -64,7 +64,7 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <p class="navbar-text pull-right">
-                <a href="#!/user/{{model.userId}}" class="navbar-link">
+                <a ng-click="model.maintainWebsiteByProfile(model.website_unedited)" class="navbar-link">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>

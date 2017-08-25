@@ -10,9 +10,12 @@
         model.pid = $routeParams.pid;
         model.updatePage = updatePage;
         model.deletePage = deletePage;
+        model.maintainUneditedPage = maintainUneditedPage;
+        model.maintainPageByProfile = maintainPageByProfile;
 
         function init(){
             model.page = pageService.findPageById(model.pid);
+            model.uneditedPage = angular.copy(model.page);
         }
         init();
 
@@ -35,6 +38,14 @@
             $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
         }
 
-        //console.log(model.pid);
+        function maintainUneditedPage(pid) {
+            pageService.updatePage(pid, model.uneditedPage);
+            $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
+        }
+
+        function maintainPageByProfile(pid){
+            pageService.updatePage(pid, model.uneditedPage);
+            $location.url("/user/" + model.userId);
+        }
     }
 })();
