@@ -22,28 +22,18 @@
         return api;
 
         function updateUser(userId, user){
-            for(var u in users){
-                if(users[u].username === username){
-                    user[u] = user;
-                    return user[u];
-                }
-            }
-            return null;
+            var url = "/api/user/" + userId;
+            return $http.put(url, user);
         }
 
         function findUserByUsername(username){
-            for(var u in users){
-                if(users[u].username === username){
-                    return users[u];
-                }
-            }
-            return null;
+            var url = "/api/user?username="+username;
+            return $http.get(url);
         }
 
         function registerUser(user){
-            user._id = (new Date()).getTime() + "";
-            users.push(user);
-            return user;
+            var url = "/api/user";
+            return $http.post(url, user);
         }
 
         function findUserById(userId){

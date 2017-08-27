@@ -1,4 +1,4 @@
-(function myFunction() {
+(function(){
     angular.module("WamApp")
         .controller("loginController", loginController);
 

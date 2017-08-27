@@ -10,7 +10,30 @@ var users = [
 
 app.get("/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
-app.get("/api/user", findUserByUsernameAndPassword);
+app.get("/api/user", findUser);
+app.post("/api/user", registerUser);
+app.put("/api/user/:userId", updateUser);
+
+function updateUser(req, res){
+    var userId = req.params.userId;
+    var user = req.body;
+
+    for(var u in users){
+        if(users[u]._id === userId){
+            users[u] = user;
+            res.send(user);
+            return;
+        }
+    }
+    res.sendStatus(404);
+}
+
+function registerUser(req, response) {
+    var user = req.body;
+    user._id = (new Date()).getTime() + "";
+    users.push(user);
+    response.send(user);
+}
 
 function getAllUsers(req, response) {
     response.send(users);
@@ -24,17 +47,30 @@ function getUserById(req, res) {
     }
 }
 
-function findUserByUsernameAndPassword(req, res) {
+function findUser(req, res) {
     //console.log("findUserByUsernameAndPassword");
     var username = req.query.username;
     var password = req.query.password;
-    for (var u in users) {
-        var _user = users[u];
-        if (_user.username === username && _user.password === password) {
-            res.send(_user);
-            return;
+    if(username && password) {
+        for (var u in users) {
+            var _user = users[u];
+            if (_user.username === username && _user.password === password) {
+                res.send(_user);
+                return;
+            }
         }
+        res.send("0");
+        return;
     }
-    res.send("0");
+    else if(username){
+        for(var u in users){
+            if(users[u].username === username){
+                res.send(users[u]);
+                return;
+            }
+        }
+        res.send("0");
+        return;
+    }
 }
 
