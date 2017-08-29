@@ -10,7 +10,11 @@
         model.addWebsite = addWebsite;
 
         function init(){
-            model.websites = websiteService.findWebsitesForUser(model.userId);
+            websiteService
+                .findWebsitesForUser(model.userId)
+                .then(function (websites) {
+                    model.websites = websites;
+                });
         }
         init();
 
@@ -19,15 +23,17 @@
                 model.errorMessage = "Application must have a name and description!";
                 return;
             }
-            if('name' in website) {
-                website.developerId = userId;
-                var _website = websiteService.createWebsite(website);
-                //console.log(_website);
-                $location.url("/user/" + model.userId + "/website");
-            }
-            else{
+            if(!('name' in website)){
                 model.errorMessage = "Application must have a name!";
                 return;
+            }
+            else{
+                website.developerId = userId;
+                websiteService
+                    .createWebsite(website)
+                    .then(function () {
+                        $location.url("/user/" + model.userId + "/website");
+                    });
             }
         }
     }

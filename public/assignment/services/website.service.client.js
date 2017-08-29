@@ -3,7 +3,7 @@
         .module("WamApp")
         .factory("websiteService", websiteService);
 
-    function websiteService(){
+    function websiteService($http){
 
         var websites = [
             { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
@@ -15,7 +15,6 @@
             { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
         ];
 
-        //this.findWebsitesForUser = findWebsitesForUser;
         var api = {
             "findWebsitesForUser": findWebsitesForUser,
             "createWebsite": createWebsite,
@@ -27,19 +26,22 @@
         return api;
 
         function findWebsitesForUser(userId){
-            var sites = [];
-            for(var w in websites){
-                if(websites[w].developerId === userId){
-                    sites.push(websites[w]);
-                }
-            }
-            return sites;
+            var url = "/api/user/" + userId + "/website";
+            return $http.get(url)
+                .then(function (response) {
+                    var sites = response.data;
+                    return sites;
+                });
         }
         
         function createWebsite(website) {
+            var url = "/api/user/" + website.developerId + "/website";
+            return $http.post(url, website);
+            /*
             website._id = (new Date()).getTime() + "";
             websites.push(website);
             return website;
+            */
         }
 
         function findWebsiteById(wid){

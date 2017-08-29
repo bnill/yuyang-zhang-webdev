@@ -23,12 +23,12 @@
                 return;
             }
             if('username' in user && user.username != "") {
-                var promise = userService.findUserByUsername(user.username);
-                promise.then(function (response) {
+                userService.findUserByUsername(user.username)
+                    .then(function (response) {
                     var _user = response.data;
                     if (_user === "0") {
-                        var promise2 = userService.registerUser(user);
-                        promise2.then(function (response) {
+                        userService.registerUser(user)
+                            .then(function (response) {
                             _user = response.data;
                             $location.url("/user/" + _user._id);
                         });
