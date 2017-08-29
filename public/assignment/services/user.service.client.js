@@ -9,7 +9,8 @@
             "findUserById": findUserById,
             "registerUser": registerUser,
             "findUserByUsername": findUserByUsername,
-            "updateUser": updateUser
+            "updateUser": updateUser,
+            "deleteUser": deleteUser
         };
 
         return api;
@@ -36,6 +37,11 @@
         function findUserByUsernameAndPassword(username, password){
             var url = "/api/user?username="+username+"&password="+password;
             return $http.get(url);
+        }
+
+        function deleteUser(userId) {
+            var url = "/api/user/" + userId;
+            return $http.delete(url);
         }
     }
 })();

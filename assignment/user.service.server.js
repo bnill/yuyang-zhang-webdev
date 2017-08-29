@@ -13,6 +13,22 @@ app.get("/api/user/:userId", getUserById);
 app.get("/api/user", findUser);
 app.post("/api/user", registerUser);
 app.put("/api/user/:userId", updateUser);
+app.delete("/api/user/:userId", deleteUser);
+
+function deleteUser(req, res) {
+    var userId = req.params.userId;
+
+    for(var u in users){
+        if(users[u]._id === userId){
+            var result = users[u];
+            var index = users.indexOf(result);
+            users.splice(index, 1);
+            res.sendStatus(200);
+            return;
+        }
+    }
+    res.sendStatus(404);
+}
 
 function updateUser(req, res){
     var userId = req.params.userId;

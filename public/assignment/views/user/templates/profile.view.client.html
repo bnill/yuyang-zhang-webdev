@@ -14,6 +14,8 @@
     </nav>
 
     <div class="container-fluid">
+        <div class="alert alert-danger"
+             ng-show="model.errorMessage">{{model.errorMessage}}</div>
         <h2>Profile</h2>
         <label for="username">Username</label>
         <input name="username"
@@ -48,6 +50,9 @@
         <a class="btn btn-default btn-danger btn-block"
            href="#!/login"
            role="button">Logout</a>
+        <a class="btn btn-default btn-danger btn-block"
+           ng-click="model.deleteUser(model.user._id)"
+           role="button">Unregister</a>
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">

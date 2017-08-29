@@ -5,16 +5,6 @@
 
     function websiteService($http){
 
-        var websites = [
-            { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
-            { "_id": "234", "name": "Tweeter",     "developerId": "456", "description": "Lorem" },
-            { "_id": "456", "name": "Gizmodo",     "developerId": "456", "description": "Lorem" },
-            { "_id": "890", "name": "Go",          "developerId": "123", "description": "Lorem" },
-            { "_id": "567", "name": "Tic Tac Toe", "developerId": "123", "description": "Lorem" },
-            { "_id": "678", "name": "Checkers",    "developerId": "123", "description": "Lorem" },
-            { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
-        ];
-
         var api = {
             "findWebsitesForUser": findWebsitesForUser,
             "createWebsite": createWebsite,
@@ -44,7 +34,14 @@
             */
         }
 
-        function findWebsiteById(wid){
+        function findWebsiteById(wid, userId){
+            var url = "/api/user/" + userId + "/website/" + wid;
+            return $http.get(url)
+                .then(function (response) {
+                    var site = response.data;
+                    return site;
+                });
+            /*
             for(w in websites){
                 if(websites[w]._id === wid){
                     var result = websites[w];
@@ -53,17 +50,26 @@
                 }
             }
             return null;
+            */
         }
 
         function deleteWebsite(wid){
+            var url = "/api/website/" + wid;
+            return $http.delete(url);
+
+            /*
             var result = findWebsiteById(wid);
             var index = websites.indexOf(result);
             websites.splice(index, 1);
             return;
+            */
             //console.log("111");
         }
 
         function UpdateWebsite(wid, website) {
+            var url = "/api/website/" + wid;
+            return $http.put(url, website);
+            /*
             for(w in websites) {
                 if(websites[w]._id === wid){
                     websites[w].name = website.name;
@@ -72,6 +78,7 @@
                 }
             }
             return;
+            */
         }
     }
 })();

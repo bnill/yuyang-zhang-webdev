@@ -3,10 +3,11 @@
         .module("WamApp")
         .controller("profileController", profileController);
 
-    function profileController($routeParams, userService, $http) {
+    function profileController($routeParams, userService, $http, $location) {
         var model = this;
         var userId = $routeParams["userId"];
         model.updateUser = updateUser;
+        model.deleteUser = deleteUser;
         function init(){
             var promise = userService.findUserById(userId);
             promise.then(function (response) {
@@ -17,11 +18,16 @@
 
         function updateUser(userId, User){
             userService.updateUser(userId, User);
-            /*
-            if(!_user){
-                $location.url("/profile/" + user._id);
-            }
-            */
+        }
+
+        function deleteUser(userId) {
+            userService
+                .deleteUser(userId)
+                .then(function () {
+                    $location.url("/login");
+                }, function () {
+                    model.errorMessage = "Failed to delete!";
+                });
         }
     }
 })();

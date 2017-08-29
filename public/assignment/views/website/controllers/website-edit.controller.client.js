@@ -12,20 +12,31 @@
         model.updateWebsite = updateWebsite;
         model.maintainWebsiteByCog = maintainWebsiteByCog;
         model.maintainWebsiteByProfile = maintainWebsiteByProfile;
+        model.maintainWebsiteByBack = maintainWebsiteByBack;
 
         function init(){
-            model.website = websiteService.findWebsiteById(model.websiteId);
-            model.websites = websiteService.findWebsitesForUser(model.userId);
+            websiteService
+                .findWebsitesForUser(model.userId)
+                .then(function (websites) {
+                    model.websites = websites;
+                    model.websites_unedited = angular.copy(model.websites);
+                });
+            websiteService
+                .findWebsiteById(model.websiteId, model.userId)
+                .then(function (website) {
+                    model.website = website;
+                    model.website_unedited = angular.copy(model.website);
+                });
         }
         init();
 
-        model.websites_unedited = angular.copy(model.websites);
-        model.website_unedited = angular.copy(model.website);
-
         function deleteWebsiteById(wid){
-            websiteService.deleteWebsite(wid);
+            websiteService
+                .deleteWebsite(wid)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website");
+                })
             //console.log("111");
-            $location.url("/user/" + model.userId + "/website");
         }
 
         function updateWebsite(website){
@@ -35,21 +46,37 @@
             }
             else{
                 //console.log(website);
-                var result_updateWebsite = websiteService.UpdateWebsite(model.websiteId, website);
-                $location.url("/user/" + model.userId + "/website");
+                websiteService
+                    .UpdateWebsite(model.websiteId, website)
+                    .then(function () {
+                        $location.url("/user/" + model.userId + "/website");
+                    });
             }
         }
 
         function maintainWebsiteByCog(website, url_id){
             //console.log(website);
-            var result_updateWebsite = websiteService.UpdateWebsite(model.websiteId, model.website_unedited);
-            $location.url("/user/" + model.userId + "/website/" + url_id);
-            return;
+            websiteService
+                .UpdateWebsite(model.websiteId, model.website_unedited)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website/" + url_id);
+                });
         }
 
         function maintainWebsiteByProfile(website){
-            websiteService.UpdateWebsite(website._id, model.website_unedited);
-            $location.url("/user/" + model.userId);
+            websiteService
+                .UpdateWebsite(website._id, model.website_unedited)
+                .then(function () {
+                    $location.url("/user/" + model.userId);
+                });
+        }
+
+        function maintainWebsiteByBack(website){
+            websiteService
+                .UpdateWebsite(model.websiteId, model.website_unedited)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website");
+                })
         }
     }
 })();
