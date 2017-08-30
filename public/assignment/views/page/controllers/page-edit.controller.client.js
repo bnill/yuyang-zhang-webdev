@@ -14,8 +14,12 @@
         model.maintainPageByProfile = maintainPageByProfile;
 
         function init(){
-            model.page = pageService.findPageById(model.pid);
-            model.uneditedPage = angular.copy(model.page);
+            pageService
+                .findPageById(model.pid)
+                .then(function (page) {
+                    model.page = page;
+                    model.uneditedPage = angular.copy(model.page);
+                });
         }
         init();
 
@@ -25,27 +29,41 @@
                 return;
             }
             else {
-                var result = pageService.updatePage(pid, page);
+                pageService
+                    .updatePage(pid, page)
+                    .then(function () {
+                        $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
+                    }, function () {
+                        model.errorMessage = "page doesn't exist!";
+                    });
                 //console.log(result);
-                $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
             }
             return;
         }
 
         function deletePage(pid) {
-            var result = pageService.deletePage(pid);
+            pageService
+                .deletePage(pid)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
+                });
             //console.log(result);
-            $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
         }
 
         function maintainUneditedPage(pid) {
-            pageService.updatePage(pid, model.uneditedPage);
-            $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
+            pageService
+                .updatePage(pid, model.uneditedPage)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
+                });
         }
 
         function maintainPageByProfile(pid){
-            pageService.updatePage(pid, model.uneditedPage);
-            $location.url("/user/" + model.userId);
+            pageService
+                .updatePage(pid, model.uneditedPage)
+                .then(function () {
+                    $location.url("/user/" + model.userId);
+                });
         }
     }
 })();

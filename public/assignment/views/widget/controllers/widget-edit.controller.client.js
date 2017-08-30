@@ -15,31 +15,55 @@
         model.maintainWidgetByProfile = maintainWidgetByProfile;
 
         function init() {
-            model.widget = widgetService.findWidgetsById(model.wgid);
-            model.uneditedWidget = angular.copy(model.widget);
+            widgetService
+                .findWidgetsById(model.wgid)
+                .then(function (widget) {
+                    model.widget = widget;
+                    model.uneditedWidget = angular.copy(model.widget);
+                });
         }
         init();
 
         function deleteWidget(wgid) {
-            var result = widgetService.deleteWidget(wgid);
+            widgetService
+                .deleteWidget(wgid)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+                });
             //console.log(result);
-            $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
         }
 
         function updateWidget(wid, widget) {
-            var result = widgetService.updateWidget(wid, widget);
+            if(model.widget.text === "" && model.widget.widgetType === "HEADING"){
+                model.errorMessage = "The text for header cannot be empty!";
+                return;
+            }
+            if(model.widget.widgetType === "HEADING" && (model.widget.size > 6 || model.widget.size < 1)){
+                model.errorMessage = "The size of the header should be between 1 and 6";
+                return;
+            }
+            widgetService
+                .updateWidget(wid, widget)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+                });
             //console.log(result);
-            $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
         }
 
         function maintainUneditedWidget(wgid){
-            widgetService.updateWidget(wgid, model.uneditedWidget);
-            $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+            widgetService
+                .updateWidget(wgid, model.uneditedWidget)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+                });
         }
 
         function maintainWidgetByProfile(wgid){
-            widgetService.updateWidget(wgid, model.uneditedWidget);
-            $location.url("/user/" + model.userId);
+            widgetService
+                .updateWidget(wgid, model.uneditedWidget)
+                .then(function () {
+                    $location.url("/user/" + model.userId);
+                });
         }
     }
 })();

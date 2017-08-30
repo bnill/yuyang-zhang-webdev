@@ -20,9 +20,12 @@
             }
             else {
                 page.websiteId = model.wid;
-                var result = pageService.createPage(page);
+                pageService
+                    .createPage(page)
+                    .then(function () {
+                        $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
+                    });
                 //console.log(result);
-                $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
             }
         }
     }

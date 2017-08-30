@@ -16,9 +16,11 @@
         init();
 
         function createWidget(TYPE) {
-            var widgetId = widgetService.createWidget(TYPE, model.pid);
-            //console.log(widgetId);
-            $location.url('/user/' + model.userId + '/website/' + model.wid + '/page/' + model.pid + '/widget/' + widgetId);
+            widgetService
+                .createWidget(TYPE, model.pid)
+                .then(function (widget) {
+                    $location.url('/user/' + model.userId + '/website/' + model.wid + '/page/' + model.pid + '/widget/' + widget._id);
+                });
         }
     }
 })();

@@ -3,12 +3,7 @@
         .module("WamApp")
         .factory("pageService", pageService);
 
-    function pageService(){
-        var pages = [
-            { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
-            { "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem" },
-            { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" }
-        ];
+    function pageService($http){
 
         var api = {
             "createPage": createPage,
@@ -21,12 +16,22 @@
         return api;
 
         function createPage(page){
+            var url = "/api/website/" + page.websiteId + "/page"
+            return $http.post(url, page);
+            /*
             page._id = (new Date()).getTime() + "";
             pages.push(page);
             return page;
+            */
         }
 
         function findPageByWebsiteId(wid){
+            var url = "/api/website/" + wid + "/page";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+            /*
             var result_pages = [];
             for(var p in pages){
                 if(pages[p].websiteId === wid){
@@ -35,18 +40,29 @@
             }
             //console.log(result_pages);
             return result_pages;
+            */
         }
 
         function findPageById(pid){
+            var url = "/api/page/" + pid;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+            /*
             for(var p in pages){
                 if(pages[p]._id === pid){
                     return pages[p];
                 }
             }
             return;
+            */
         }
 
         function updatePage(pid, page){
+            var url = "/api/page/" + pid;
+            return $http.put(url, page);
+            /*
             for(var p in pages){
                 if(pages[p]._id === pid){
                     pages[p] = page;
@@ -54,13 +70,18 @@
                 }
             }
             return;
+            */
         }
 
         function deletePage(pid){
+            var url = "/api/page/" + pid;
+            return $http.delete(url);
+            /*
             var result = findPageById(pid);
             var index = pages.indexOf(result);
             pages.splice(index, 1);
             return result;
+            */
         }
 
     }

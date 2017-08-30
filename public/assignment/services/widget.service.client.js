@@ -3,18 +3,7 @@
         .module("WamApp")
         .factory("widgetService", widgetService);
     
-    function widgetService() {
-        var widgets = [
-            { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
-            { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-            { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-                "url": "http://lorempixel.com/400/200/"},
-            { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
-            { "_id": "567", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-            { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-                "url": "https://youtu.be/AM2Ivdi9c4E" },
-            { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
-        ];
+    function widgetService($http) {
 
         var api = {
             "createWidget": createWidget,
@@ -27,7 +16,7 @@
         return api;
 
         function createWidget(TYPE, pid){
-            var widgetId = (new Date()).getTime() + "";
+            var url = "/api/page/" + pid + "/widget";
             switch(TYPE){
                 case 'HEADING':
                     var widget = { "_id": "", "widgetType": "HEADING", "pageId": "", "size": "" , "text": ""};
@@ -44,14 +33,21 @@
                 default:
                     break;
             }
-            widget._id = widgetId;
-            widget.pageId = pid;
             //console.log(widget);
-            widgets.push(widget);
-            return widgetId;
+            return $http.post(url, widget)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function findWidgetsByPageId(pid){
+            var url = "/api/page/" + pid + "/widget";
+            return $http.get(url)
+                .then(function (response) {
+                    var result = response.data;
+                    return result;
+                });
+            /*
             var result_widgets = [];
             for(var w in widgets){
                 if(widgets[w].pageId === pid){
@@ -59,10 +55,16 @@
                 }
             }
             return result_widgets;
-
+            */
         }
         
         function findWidgetsById(wgid) {
+            var url = "/api/widget/" + wgid;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+            /*
             var result;
             for(var w in widgets){
                 if(widgets[w]._id === wgid){
@@ -72,9 +74,13 @@
                 }
             }
             return;
+            */
         }
 
         function updateWidget(wgid, widget){
+            var url = "/api/widget/" + wgid;
+            return $http.put(url, widget);
+            /*
             var result;
             for(var w in widgets){
                 if(widgets[w]._id === wgid){
@@ -85,14 +91,19 @@
                 }
             }
             return result;
+            */
         }
 
         function deleteWidget(wgid){
+            var url = "/api/widget/" + wgid;
+            return $http.delete(url);
+            /*
             var result = findWidgetsById(wgid);
             var index = widgets.indexOf(result);
             widgets.splice(index, 1);
             //console.log(widgets);
             return widgets;
+            */
         }
 
     }
