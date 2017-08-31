@@ -46,6 +46,8 @@
                 .updateWidget(wgid, widget)
                 .then(function () {
                     $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+                }, function () {
+                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
                 });
             //console.log(result);
         }
