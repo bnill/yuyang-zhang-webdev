@@ -15,6 +15,10 @@ input, textarea {
     min-inline-size:187px;
 }
 
+.btn-block{
+    margin-top:5px;
+}
+
 .navbar-header {
     float: left;
 }
