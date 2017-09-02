@@ -32,22 +32,23 @@ function uploadImage(req, res) {
     var websiteId = req.body.websiteId;
     var pageId = req.body.pageId;
 
-    if(myFile === null) {
-        res.sendStatus(404);
+    if(req.file) {
+        var originalname = myFile.originalname; // file name on user's computer
+        var filename = myFile.filename;     // new file name in upload folder
+        var path = myFile.path;         // full path of uploaded file
+        var destination = myFile.destination;  // folder where file is saved to
+        var size = myFile.size;
+        var mimetype = myFile.mimetype;
+
+        widget = getWidgetById(widgetId);
+        widget.url = '/assignment/uploads/' + filename;
+
+        var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
+
+        res.redirect(callbackUrl);
         return;
     }
-    var originalname  = myFile.originalname; // file name on user's computer
-    var filename      = myFile.filename;     // new file name in upload folder
-    var path          = myFile.path;         // full path of uploaded file
-    var destination   = myFile.destination;  // folder where file is saved to
-    var size          = myFile.size;
-    var mimetype      = myFile.mimetype;
-
-    widget = getWidgetById(widgetId);
-    widget.url = '/assignment/uploads/'+filename;
-
-    var callbackUrl   = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
-
+    var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
     res.redirect(callbackUrl);
 }
 
