@@ -19,6 +19,7 @@
 </nav>
 
 <div class="container-fluid">
+    <wbdv-directives>
     <div ng-repeat="widget in model.widgets" class="zyy-widget-list">
         <div class="zyy-toolbar">
             <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
@@ -42,6 +43,7 @@
         </div>
 
     </div>
+    </wbdv-directives>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

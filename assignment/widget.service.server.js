@@ -16,7 +16,27 @@ app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
 app.get("/api/widget/:widgetId", findWidgetById);
 app.post("/api/page/:pageId/widget", createWidget);
 app.put("/api/widget/:widgetId", updateWidget);
+app.put("/api/page/:pageId/widget", sortWidget);
 app.delete("/api/widget/:widgetId", deleteWidget);
+
+function sortWidget(req, res) {
+    var pid = req.params.pageId;
+    var start = req.query.initial;
+    var end = req.query.final;
+    var widgetsTmp = [];
+    var length = widgets.length;
+    for (var i =  length - 1; i >= 0; i--){
+        if (widgets[i].pageId === pid){
+            widgetsTmp.unshift(widgets[i]);
+            widgets.splice(i, 1);
+        }
+    }
+    var widget = widgetsTmp[start];
+    widgetsTmp[start] = widgetsTmp[end];
+    widgetsTmp[end] = widget;
+    widgets = widgets.concat(widgetsTmp);
+    res.sendStatus(200);
+}
 
 var multer = require('multer'); // npm install multer --save
 var upload = multer({ dest: __dirname+'/../public/assignment/uploads' });

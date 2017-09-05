@@ -3,14 +3,15 @@
         .module("WamApp")
         .factory("widgetService", widgetService);
     
-    function widgetService($http) {
+    function widgetService($routeParams ,$http) {
 
         var api = {
             "createWidget": createWidget,
             "findWidgetsByPageId": findWidgetsByPageId,
             "findWidgetsById": findWidgetsById,
             "updateWidget": updateWidget,
-            "deleteWidget": deleteWidget
+            "deleteWidget": deleteWidget,
+            "sortWidget": sortWidget
         }
 
         return api;
@@ -104,6 +105,12 @@
             //console.log(widgets);
             return widgets;
             */
+        }
+
+        function sortWidget(start, end) {
+            var url = "/api/page/" + $routeParams.pid + "/widget?initial=" + start + "&final=" + end;
+            //console.log(url);
+            return $http.put(url);
         }
 
     }
