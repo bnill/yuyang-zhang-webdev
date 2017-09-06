@@ -1,3 +1,10 @@
+<label for="name">Name</label>
+<input name="name"
+       ng-model="model.widget.name"
+       class="form-control"
+       id="name"
+       placeholder="HTML Name"/>
+
 <div text-angular
      ta-toolbar="[['h1', 'h2', 'h3', 'h4', 'p'],
       ['bold', 'italics', 'underline', 'ul', 'ol', 'undo'],
@@ -5,3 +12,7 @@
       ['html', 'wordcount', 'charcount']]"
       ng-model="model.widget.text">
 </div>
+<a class="btn btn-primary btn-danger btn-block"
+   ng-click="model.deleteWidget(model.wgid)">
+    Delete
+</a>
