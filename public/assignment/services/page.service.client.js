@@ -11,7 +11,7 @@
             "findPageById": findPageById,
             "updatePage": updatePage,
             "deletePage": deletePage
-        }
+        };
 
         return api;
 
@@ -83,6 +83,5 @@
             return result;
             */
         }
-
     }
 })();
