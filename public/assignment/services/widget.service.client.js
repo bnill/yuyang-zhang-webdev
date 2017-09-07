@@ -23,17 +23,26 @@
                     var widget = { "_id": "", "widgetType": "HEADING", "pageId": "", "size": "" , "text": ""};
                     break;
                 case 'HTML':
-                    var widget = { "_id": "", "widgetType": "HTML", "pageId": "", "text": ""};
+                    var widget = { "_id": "", "widgetType": "HTML", "pageId": "", "text": "", "colsize": "col-xs-12"};
                     break;
                 case 'IMAGE':
                     var widget = { "_id": "", "widgetType": "IMAGE", "pageId": "", "width": "" , "url": ""};
                     break;
                 case 'YOUTUBE':
-                    var widget = { "_id": "", "widgetType": "YOUTUBE", "pageId": "", "width": "" , "url": ""};
+                    var widget = { "_id": "", "widgetType": "YOUTUBE", "pageId": "", "width": "100%", "height": "562.5" , "url": ""};
                     break;
                 case 'TEXT':
                     var widget = { "_id": "", "widgetType": "TEXT", "pageId": "", "text": ""};
                     //console.log(widget);
+                    break;
+                case 'LABEL':
+                    var widget = { "_id": "", "widgetType": "LABEL", "pageId": "", "text": ""};
+                    break;
+                case 'LINK':
+                    var widget = { "_id": "", "widgetType": "LINK", "pageId": "", "url": ""};
+                    break;
+                case 'BUTTON':
+                    var widget = { "_id": "", "widgetType": "BUTTON", "pageId": "", "text": "", "class": ""};
                     break;
                 default:
                     break;
@@ -84,6 +93,7 @@
 
         function updateWidget(wgid, widget){
             var url = "/api/widget/" + wgid;
+            //console.log(widget);
             return $http.put(url, widget);
             /*
             var result;

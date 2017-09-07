@@ -1,0 +1,36 @@
+<label for="name">Name</label>
+<input name="name"
+       ng-model="model.widget.name"
+       class="form-control"
+       id="name"
+       placeholder="Button Name"/>
+
+<label for="text">Text</label>
+<input name="text"
+       ng-model="model.widget.text"
+       class="form-control"
+       id="text"
+       placeholder="Text for the button"/>
+
+<label for="url">URL</label>
+<input name="text"
+       ng-model="model.widget.url"
+       class="form-control"
+       id="url"
+       placeholder="Link for this button"/>
+
+<label>Button style</label>
+<div class="radio">
+    <label>
+        <input ng-model="model.widget.class" type="radio" name="optionsRadios" id="optionsRadios1" value="btn-primary"  checked> btn-primary(blue)
+    </label>
+</div>
+<div class="radio">
+    <label>
+        <input ng-model="model.widget.class" type="radio" name="optionsRadios" id="optionsRadios2" value="btn-danger"> btn-danger(red)
+    </label>
+</div>
+
+<a class="btn btn-default btn-danger btn-block"
+   ng-click="model.deleteWidget(model.wgid)"
+   role="button">Delete</a>

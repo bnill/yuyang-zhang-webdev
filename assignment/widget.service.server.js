@@ -32,8 +32,8 @@ function sortWidget(req, res) {
         }
     }
     var widget = widgetsTmp[start];
-    widgetsTmp[start] = widgetsTmp[end];
-    widgetsTmp[end] = widget;
+    widgetsTmp.splice(start, 1);
+    widgetsTmp.splice(end, 0, widget);
     widgets = widgets.concat(widgetsTmp);
     res.sendStatus(200);
 }
@@ -68,7 +68,7 @@ function uploadImage(req, res) {
         res.redirect(callbackUrl);
         return;
     }
-    var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
+    var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
     res.redirect(callbackUrl);
 }
 

@@ -38,6 +38,15 @@
         <div ng-switch-when="TEXT">
             <div ng-include src="'views/widget/templates/editors/widget-text-edit.view.client.html'"></div>
         </div>
+        <div ng-switch-when="LABEL">
+            <div ng-include src="'views/widget/templates/editors/widget-label-edit.view.client.html'"></div>
+        </div>
+        <div ng-switch-when="LINK">
+            <div ng-include src="'views/widget/templates/editors/widget-link-edit.view.client.html'"></div>
+        </div>
+        <div ng-switch-when="BUTTON">
+            <div ng-include src="'views/widget/templates/editors/widget-button-edit.view.client.html'"></div>
+        </div>
     </div>
 </div>
 

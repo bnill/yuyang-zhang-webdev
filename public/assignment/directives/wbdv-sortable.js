@@ -9,7 +9,8 @@
         function linkFunction(scope, element) {
             //console.log(element);
             element.sortable({
-                scroll: false,
+                scroll: true,
+                //axis: "y",
                 start: function (event, ui) {
                     //console.log("sorting begin");
                     initial = ui.item.index();
