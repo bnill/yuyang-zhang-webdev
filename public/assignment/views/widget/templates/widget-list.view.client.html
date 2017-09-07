@@ -29,16 +29,19 @@
         </div>
         <div ng-switch="widget.widgetType">
             <div ng-switch-when="HEADING">
-                <ng-include src="'views/widget/templates/views/widget-heading.view.client.html'">
+                <div ng-include src="'views/widget/templates/views/widget-heading.view.client.html'"></div>
             </div>
             <div ng-switch-when="IMAGE">
-                <ng-include src="'views/widget/templates/views/widget-image.view.client.html'">
+                <div ng-include src="'views/widget/templates/views/widget-image.view.client.html'"></div>
             </div>
             <div ng-switch-when="YOUTUBE">
-                <ng-include src="'views/widget/templates/views/widget-youtube.view.client.html'">
+                <div ng-include src="'views/widget/templates/views/widget-youtube.view.client.html'"></div>
             </div>
             <div ng-switch-when="HTML">
-                <ng-include src="'views/widget/templates/views/widget-html.view.client.html'">
+                <div ng-include src="'views/widget/templates/views/widget-html.view.client.html'"></div>
+            </div>
+            <div ng-switch-when="TEXT">
+                <div ng-include src="'views/widget/templates/views/widget-text.view.client.html'"></div>
             </div>
         </div>
 

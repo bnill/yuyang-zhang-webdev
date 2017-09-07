@@ -1,0 +1,36 @@
+<label for="name">Name</label>
+<input name="name"
+       ng-model="model.widget.name"
+       class="form-control"
+       id="name"
+       placeholder="Header Name"/>
+
+<label for="text">Text</label>
+<input name="text"
+       ng-model="model.widget.text"
+       class="form-control"
+       id="text"
+       placeholder="Text for the text input"/>
+
+<label for="rows">Rows</label>
+<input name="rows"
+       ng-model="model.widget.rows"
+       class="form-control"
+       id="rows"
+       placeholder="rows for the input"/>
+
+<label for="placeholder">Placeholder</label>
+<input name="placeholder"
+       class="form-control"
+       id="placeholder"
+       ng-model="model.widget.placeholder"
+       class="form-control"/>
+
+<div class="input-group zyy-input-group">
+    <input type="text" class="form-control" aria-label="Text input with checkbox" value="Formatted" readonly>
+    <span class="input-group-addon">
+        <input type="checkbox" aria-label="Checkbox for following text input" ng-model="model.widget.formatted">
+    </span>
+</div>
+
+<a class="btn btn-danger btn-block" ng-click="model.deleteWidget(model.wgid)">Delete</a>

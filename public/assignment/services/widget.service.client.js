@@ -31,6 +31,10 @@
                 case 'YOUTUBE':
                     var widget = { "_id": "", "widgetType": "YOUTUBE", "pageId": "", "width": "" , "url": ""};
                     break;
+                case 'TEXT':
+                    var widget = { "_id": "", "widgetType": "TEXT", "pageId": "", "text": ""};
+                    //console.log(widget);
+                    break;
                 default:
                     break;
             }
