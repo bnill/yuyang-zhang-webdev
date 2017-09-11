@@ -20,29 +20,29 @@
             var url = "/api/page/" + pid + "/widget";
             switch(TYPE){
                 case 'HEADING':
-                    var widget = { "_id": "", "widgetType": "HEADING", "pageId": "", "size": "" , "text": ""};
+                    var widget = { "type": "HEADING", "size": "" , "text": ""};
                     break;
                 case 'HTML':
-                    var widget = { "_id": "", "widgetType": "HTML", "pageId": "", "text": "", "colsize": "col-xs-12"};
+                    var widget = { "type": "HTML", "text": "", "colsize": "col-xs-12"};
                     break;
                 case 'IMAGE':
-                    var widget = { "_id": "", "widgetType": "IMAGE", "pageId": "", "width": "" , "url": ""};
+                    var widget = { "type": "IMAGE", "width": "" , "url": ""};
                     break;
                 case 'YOUTUBE':
-                    var widget = { "_id": "", "widgetType": "YOUTUBE", "pageId": "", "width": "100%", "height": "562.5" , "url": ""};
+                    var widget = { "type": "YOUTUBE", "width": "100%", "height": "562.5" , "url": ""};
                     break;
                 case 'TEXT':
-                    var widget = { "_id": "", "widgetType": "TEXT", "pageId": "", "text": ""};
+                    var widget = { "type": "TEXT", "text": ""};
                     //console.log(widget);
                     break;
                 case 'LABEL':
-                    var widget = { "_id": "", "widgetType": "LABEL", "pageId": "", "text": ""};
+                    var widget = { "type": "LABEL", "text": ""};
                     break;
                 case 'LINK':
-                    var widget = { "_id": "", "widgetType": "LINK", "pageId": "", "url": ""};
+                    var widget = { "type": "LINK", "url": ""};
                     break;
                 case 'BUTTON':
-                    var widget = { "_id": "", "widgetType": "BUTTON", "pageId": "", "text": "", "class": ""};
+                    var widget = { "type": "BUTTON", "text": "", "class": ""};
                     break;
                 default:
                     break;

@@ -19,6 +19,7 @@
             widgetService
                 .createWidget(TYPE, model.pid)
                 .then(function (widget) {
+                    //console.log(widget._id);
                     $location.url('/user/' + model.userId + '/website/' + model.wid + '/page/' + model.pid + '/widget/' + widget._id);
                 });
         }

@@ -1,4 +1,5 @@
 var app = require("../../express");
+var widgetModel = require("../model/widget.model.server");
 
 var widgets = [
     { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
@@ -82,6 +83,13 @@ function getWidgetById(wgid) {
 
 function deleteWidget(req, res){
     var wgid = req.params.widgetId;
+
+    widgetModel
+        .deleteWidget(wgid)
+        .then(function (status) {
+            res.send(status);
+        })
+    /*
     for(var wg in widgets){
         if(widgets[wg]._id === wgid){
             var result = widgets[wg];
@@ -92,12 +100,19 @@ function deleteWidget(req, res){
         }
     }
     res.sendStatus(404);
+    */
 }
 
 function updateWidget(req, res) {
     var wgid = req.params.widgetId;
     var widget = req.body;
 
+    widgetModel
+        .updateWidget(wgid, widget)
+        .then(function (status) {
+            res.send(status);
+        })
+    /*
     var result;
     for(var w in widgets){
         if(widgets[w]._id === wgid){
@@ -109,11 +124,19 @@ function updateWidget(req, res) {
         }
     }
     res.sendStatus(404);
+    */
 }
 
 function findWidgetById(req, res){
-    var result;
     var wgid = req.params.widgetId;
+
+    widgetModel
+        .findWidgetById(wgid)
+        .then(function (widget) {
+            res.send(widget);
+            return;
+        })
+    /*
     for(var w in widgets){
         if(widgets[w]._id === wgid){
             result = widgets[w];
@@ -123,21 +146,37 @@ function findWidgetById(req, res){
         }
     }
     res.sendStatus(404);
+    */
 }
 
 function createWidget(req, res){
     var pid = req.params.pageId;
     var widget = req.body;
 
+    widgetModel
+        .createWidget(pid, widget)
+        .then(function (widget) {
+            res.send(widget);
+        });
+    /*
     var widgetId = (new Date()).getTime() + "";
     widget._id = widgetId;
     widget.pageId = pid;
     widgets.push(widget);
     res.json(widget);
+    */
 }
 
 function findAllWidgetsForPage(req, res) {
     var pid = req.params.pageId;
+
+    widgetModel
+        .findAllWidgetsForPage(pid)
+        .then(function (widgets) {
+            res.send(widgets);
+            return;
+        })
+    /*
     var result_widgets = [];
     for(var w in widgets){
         if(widgets[w].pageId === pid){
@@ -145,4 +184,5 @@ function findAllWidgetsForPage(req, res) {
         }
     }
     res.send(result_widgets);
+    */
 }
