@@ -1,4 +1,5 @@
-var app = require("../express");
+var app = require("../../express");
+var pageModel = require("../model/page.model.server");
 
 var pages = [
     { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
@@ -15,6 +16,13 @@ app.delete("/api/page/:pageId", deletePage);
 function deletePage(req, res) {
     var pid = req.params.pageId;
 
+    pageModel
+        .deletePage(pid)
+        .then(function (status) {
+            res.send(status);
+            return;
+        })
+    /*
     for(var p in pages){
         if(pages[p]._id === pid){
             var result = pages[p];
@@ -25,10 +33,19 @@ function deletePage(req, res) {
         }
     }
     res.sendStatus(404);
+    */
 }
 
 function findPageById(req, res) {
     var pid = req.params.pageId;
+
+    pageModel
+        .findPageById(pid)
+        .then(function (page) {
+           res.send(page);
+           return;
+        });
+    /*
     for(var p in pages){
         if(pages[p]._id === pid){
             res.send(pages[p]);
@@ -36,12 +53,20 @@ function findPageById(req, res) {
         }
     }
     res.sendStatus(404);
+    */
 }
 
 function updatePage(req, res) {
     var pid = req.params.pageId;
     var page = req.body;
 
+    pageModel
+        .updatePage(pid, page)
+        .then(function (status) {
+            res.send(status);
+            return;
+        })
+    /*
     for(var p in pages){
         if(pages[p]._id === pid){
             pages[p] = page;
@@ -50,25 +75,43 @@ function updatePage(req, res) {
         }
     }
     res.sendStatus(404);
+    */
 }
 
 function createPage(req, res) {
     var wid = req.params.websiteId;
     var page = req.body;
 
+    pageModel
+        .createPage(wid, page)
+        .then(function (page) {
+            res.send(page);
+            return;
+        })
+    /*
     page._id = (new Date()).getTime() + "";
     pages.push(page);
     res.send(page);
+    */
 }
 
 function findAllPagesForWebsite(req, res) {
     var wid = req.params.websiteId;
+
+    pageModel
+        .findAllPagesForWebsite(wid)
+        .then(function (pages) {
+            res.send(pages);
+            return;
+        })
+    /*
     var result_pages = [];
     for(var p in pages){
         if(pages[p].websiteId === wid){
             result_pages.push(pages[p]);
         }
     }
+    */
     //console.log(result_pages);
-    res.send(result_pages);
+    //res.send(result_pages);
 }
