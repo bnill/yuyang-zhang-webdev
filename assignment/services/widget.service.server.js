@@ -1,18 +1,6 @@
 var app = require("../../express");
 var widgetModel = require("../model/widget.model.server");
 
-var widgets = [
-    { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
-    { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-    { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-        "url": "http://lorempixel.com/400/200/"},
-    { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
-    { "_id": "567", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-    { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-        "url": "https://youtu.be/AM2Ivdi9c4E" },
-    { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
-];
-
 app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
 app.get("/api/widget/:widgetId", findWidgetById);
 app.post("/api/page/:pageId/widget", createWidget);
@@ -22,8 +10,20 @@ app.delete("/api/widget/:widgetId", deleteWidget);
 
 function sortWidget(req, res) {
     var pid = req.params.pageId;
-    var start = req.query.initial;
-    var end = req.query.final;
+    var start = parseInt(req.query.initial);
+    var end = parseInt(req.query.final);
+
+    widgetModel
+        .sortWidget(pid, start, end)
+        .then(function (widgets) {
+            widgets.sort(function (a, b) {
+               return a.order - b.order;
+            });
+            //console.log(widgets);
+            res.send(widgets);
+        });
+
+    /*
     var widgetsTmp = [];
     var length = widgets.length;
     for (var i =  length - 1; i >= 0; i--){
@@ -37,10 +37,11 @@ function sortWidget(req, res) {
     widgetsTmp.splice(end, 0, widget);
     widgets = widgets.concat(widgetsTmp);
     res.sendStatus(200);
+    */
 }
 
 var multer = require('multer'); // npm install multer --save
-var upload = multer({ dest: __dirname+'/../public/assignment/uploads' });
+var upload = multer({ dest: __dirname+'/../../public/assignment/uploads' });
 app.post("/api/upload", upload.single('myFile'), uploadImage);
 
 function uploadImage(req, res) {
@@ -61,24 +62,22 @@ function uploadImage(req, res) {
         var size = myFile.size;
         var mimetype = myFile.mimetype;
 
-        widget = getWidgetById(widgetId);
-        widget.url = '/assignment/uploads/' + filename;
+        widgetModel
+            .findWidgetById(widgetId)
+            .then(function (widget) {
+                widget.url = '/assignment/uploads/' + filename;
+                widgetModel.updateWidget(widgetId, widget)
+                    .then(function (widget) {
+                        var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
+                        res.redirect(callbackUrl);
+                    });
+            });
 
-        var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
-
+    }
+    else {
+        var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
         res.redirect(callbackUrl);
-        return;
     }
-    var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
-    res.redirect(callbackUrl);
-}
-
-function getWidgetById(wgid) {
-    for(var wg in widgets){
-        if(widgets[wg]._id === wgid)
-            return widgets[wg];
-    }
-    return null;
 }
 
 function deleteWidget(req, res){
@@ -173,6 +172,9 @@ function findAllWidgetsForPage(req, res) {
     widgetModel
         .findAllWidgetsForPage(pid)
         .then(function (widgets) {
+            widgets.sort(function (a, b) {
+               return a.order - b.order;
+            });
             res.send(widgets);
             return;
         })

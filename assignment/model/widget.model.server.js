@@ -9,14 +9,52 @@ widgetModel.findAllWidgetsForPage = findAllWidgetsForPage;
 widgetModel.updateWidget = updateWidget;
 widgetModel.findWidgetById = findWidgetById;
 widgetModel.deleteWidget = deleteWidget;
+widgetModel.sortWidget = sortWidget;
 
 module.exports = widgetModel;
+
+function sortWidget(pageId, start, end) {
+    return widgetModel.find({_page: pageId},function(error,widgets){
+        //order saves the relative widgetId in the page;
+        widgets.forEach(function(widget){
+            if(start > end) {
+                if(widget.order >= end && widget.order < start) {
+                    widget.order++;
+                    widget.save();
+                } else if(widget.order === start) {
+                    widget.order = end;
+                    widget.save();
+                }
+            } else if(start < end){
+                if(widget.order > start && widget.order <= end) {
+                    widget.order--;
+                    widget.save();
+                } else if(widget.order === start) {
+                    widget.order = end;
+                    widget.save();
+                }
+            }
+        });
+        return widgets;
+    });
+}
 
 function deleteWidget(widgetId) {
     return widgetModel
         .findById(widgetId)
-        .then(function (widget) {
-            var pageId = widget._page;
+        .then(function (deletedWidget) {
+            var pageId = deletedWidget._page;
+            var order = deletedWidget.order;
+            widgetModel
+                .find({_page: pageId})
+                .then(function (widgets) {
+                    widgets.forEach(function(widget){
+                        if(widget.order > order){
+                            widget.order--;
+                            widget.save();
+                        }
+                    });
+                });
             return pageModel
                 .deleteWidget(pageId, widgetId)
                 .then(function () {
@@ -44,10 +82,15 @@ function findAllWidgetsForPage(pageId) {
 function createWidget(pageId, widget) {
     widget._page = pageId;
     return widgetModel
-        .create(widget)
-        .then(function (widget) {
-            pageModel
-                .addWidget(pageId, widget._id);
-            return widget;
-        })
+        .find({_page: pageId})
+        .then(function (widgets) {
+            widget.order = widgets.length;
+            return widgetModel
+                .create(widget)
+                .then(function (widget) {
+                    pageModel
+                        .addWidget(pageId, widget._id);
+                    return widget;
+                });
+        });
 }
