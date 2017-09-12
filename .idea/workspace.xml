@@ -2,29 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd0a61f9-4f34-49cf-8291-d48c645e1423" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/10081e1097b1f59b95641cf76f320f81" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/1cd80e2e6325137a1a5ea4cafea89458" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/28f25afc11f1751a819132761e72bfbb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/2c38b0ba99712ecbd59d068e6b309140" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/6179e43c19afa185a817a313159dd411" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/658864aae676cfcec90579cd8b8e8358" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/6974d5dee0f2714581d0b15e09dd3052" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/760888509f487637656c1772ba8bbc67" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/7b16a77fd64abca63efe913d3e534373" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/7efa859e1f698878d249dae1952d1461" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/9713a86578550f8aa9b2da6ed30e9613" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/a410514dece0239c2da1a9af20da626e" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/a78d718206a360c581c7ccd48d2a497b" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/adbbdf6278e1531595822bdc1960a17e" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/b694d5c20e0b1a9c5a4de627e75e09c7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/dd03a6c9821283891932d5c9dfb4faaa" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/e536d4e2198a692fef94f8925e45fd58" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/e5a2e0f92409d81e1daed2c027db3079" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/e6ea42b771e232a650732b3db5946a0f" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/ebad2335d736ed67b068a0c2f3662256" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/ee10ac0b1ef57d0bb75a16c9f354bdb0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/public/assignment/uploads/ee4fe4f296418468b3dc0159040fd099" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/app.js" afterPath="$PROJECT_DIR$/assignment/app.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -53,8 +30,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assignment/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+            <state relative-caret-position="60">
+              <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -294,6 +271,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webdev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webdev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assignment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -468,12 +463,12 @@
       <workItem from="1505004668106" duration="17602000" />
       <workItem from="1505113281724" duration="2083000" />
       <workItem from="1505115801696" duration="6251000" />
-      <workItem from="1505151763827" duration="15813000" />
+      <workItem from="1505151763827" duration="16086000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="350266000" />
+    <option name="totallyTimeSpent" value="350539000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -729,13 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/services/page.service.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assignment/services/user.service.server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -896,10 +884,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assignment/services/page.service.server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assignment/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+        <state relative-caret-position="60">
+          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
           <folding />
         </state>
       </provider>
