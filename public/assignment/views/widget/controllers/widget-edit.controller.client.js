@@ -34,11 +34,11 @@
         }
 
         function updateWidget(wgid, widget) {
-            if(model.widget.text === "" && model.widget.widgetType === "HEADING"){
+            if(model.widget.text === "" && model.widget.type === "HEADING"){
                 model.errorMessage = "The text for header cannot be empty!";
                 return;
             }
-            if(model.widget.widgetType === "HEADING" && (model.widget.size > 6 || model.widget.size < 1)){
+            if(model.widget.type === "HEADING" && (model.widget.size > 6 || model.widget.size < 1)){
                 model.errorMessage = "The size of the header should be between 1 and 6";
                 return;
         }
