@@ -1,0 +1,57 @@
+html {
+    background: url(images/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.content{
+    background-color: rgba(0, 0, 0, 0.3);
+    color:white;
+    padding:50px;
+    height:700px;
+    width:500px;
+    margin:100px auto;
+}
+
+.fa{
+    font-size:50px;
+}
+
+.profile-img{
+    height: 270px;
+}
+
+a:link{
+    color: white;
+}
+
+a:visited{
+    color: #eea236;
+}
+
+p{
+    font-size:18px;
+}
+
+.intro{
+    width: 260px;
+}
+
+.image{
+    width: 180px;
+}
+
+.social{
+    padding-top:40px;
+}
+
+.project{
+    padding-top:40px;
+}
+
+.bigfont{
+    padding:5px;
+    font-size: 20px;
+}

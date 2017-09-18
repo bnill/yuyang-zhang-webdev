@@ -2,36 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Web Dev Course Home Page</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style_index.css">
+    <title>Yuyang Zhang</title>
 </head>
 <body>
-    <h1>Web Dev Course Home Page</h1>
-
-    <p>
-        This is your website's home page. Your home page should have a picture of yourself, link to your assignments,
-        link to your final project implementation on Heroku, link to your GitHub,
-        link to a 5 minute video demoing your project. Your home page should look
-        spectacular. You should feel proud to share your homepage with your potential employer.
-        I should feel proud to share your homepage with my colleagues.
-    </p>
-
-    <h2>Required links</h2>
-    <ul>
-        <li>
-            <a href="project/index.html">Project</a>
-        </li>
-        <li>
-            <a href="assignment/index.html">Assignment</a>
-        </li>
-        <li>
-            <a href="test/index.html">Test MongoDB</a>
-        </li>
-        <li>
-            <a href="https://github.com/bnill/yuyang-zhang-webdev">Your public repository at GitHub.com</a>
-        </li>
-        <li>
-            <a href="/lectures">Lectures</a>
-        </li>
-    </ul>
+    <div class="content">
+        <div class="image pull-right">
+            <img src="images/profile.jpg" class="profile-img">
+        </div>
+        <div class="intro">
+            <h2>About me</h2>
+            <p>
+                I'm a graduate student major in computer science in Northeastern University.
+                I received my bachelor's degree in computer science in Fudan University.
+                I used to be an intern at Baidu working as a front-end engineer. I am also interested in computer networking and network security.
+                I'm looking forward for software engineer intern.
+            </p>
+        </div>
+        <div class="social">
+            <h2>Social Network Links</h2>
+            <!--<a href="assignment/index.html">Web Creator</a>-->
+            <a href="https://www.linkedin.com/in/bnillzhang/" class="button btn-default btn-lg"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+            <a href="https://github.com/bnill" class="button btn-default btn-lg"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/yuyang.zhang.3344" class="button btn-default btn-lg"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+        </div>
+        <div class="project">
+            <h2>Online projects links</h2>
+            <ul>
+                <li class="bigfont"><a href="https://github.com/bnill/network-projects">Content Delivery Network</a></li>
+                <li class="bigfont"><a href="https://github.com/bnill/NS-projects/tree/master/SecureIM">Secured IM Protocol</a></li>
+                <li class="bigfont"><a href="http://yuyang-zhang-webdev.herokuapp.com/assignment/index.html#!/">Web Creator</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
