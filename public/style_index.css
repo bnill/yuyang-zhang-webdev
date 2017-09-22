@@ -4,6 +4,8 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding: 0px;
+    margin: 0px;
 }
 
 .content{
@@ -13,6 +15,25 @@ html {
     height:700px;
     width:500px;
     margin:100px auto;
+}
+
+.body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.footer{
+    display: block;
+    color:white;
+    margin: 0px;
+    padding:0px;
+    padding-top:0px;
+    text-align: center;
+}
+
+.header h3{
+    padding-left:10px;
+    margin:0px;
 }
 
 .fa{
